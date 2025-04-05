@@ -16,7 +16,8 @@
     "start:mobile": "ionic capacitor run -l --external",
     "build:mobile": "ionic capacitor build --prod",
     "build:apk": "ionic capacitor build android --prod --release --no-open && cd android && ./gradlew assembleRelease && (path-exists androidKeyStore.keystore || keytool -genkey -v -keystore androidKeyStore.keystore -alias androidKeyStore -keyalg RSA -keysize 2048 -validity 10000) && java -jar apksigner.jar -ks androidKeyStore.keystore -a app/build/outputs/apk/release/app-release-unsigned.apk -ksAlias androidKeyStore",
-    "compile:apk": "ionic capacitor build android --info --no-build --prod --release --no-open && cd android && ./gradlew assembleRelease && (path-exists androidKeyStore.keystore || keytool -genkey -v -keystore androidKeyStore.keystore -alias androidKeyStore -keyalg RSA -keysize 2048 -validity 10000) && java -jar apksigner.jar -ks androidKeyStore.keystore -a app/build/outputs/apk/release/app-release-unsigned.apk -ksAlias androidKeyStore"
+    "compile:apk": "ionic capacitor build android --info --no-build --prod --release --no-open && cd android && ./gradlew assembleRelease && (path-exists androidKeyStore.keystore || keytool -genkey -v -keystore androidKeyStore.keystore -alias androidKeyStore -keyalg RSA -keysize 2048 -validity 10000) && java -jar apksigner.jar -ks androidKeyStore.keystore -a app/build/outputs/apk/release/app-release-unsigned.apk -ksAlias androidKeyStore",
+    "postinstall": "npm run start"
   },
   "dependencies": {
     "@awesome-cordova-plugins/app-version": "^5.41.0",
